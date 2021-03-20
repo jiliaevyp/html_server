@@ -1,0 +1,24 @@
+{{define "sidebar"}}
+<div class= "sidebar">
+    <strong>
+        {{ if eq .Ready "1" }}
+        <p><div class="pas_button_sidebar"><a href= "/index" >Главная</a></div></p>
+        <p><div class="pas_button_sidebar">Месяц</div></p>
+        <p><div class="action_button_sidebar"><a href= "/personals_index" >Персонал</div></p>
+        <p><div class="pas_button_sidebar">Отзывы</div></p>
+        <p><div class="pas_button_sidebar">Табель</div></p>
+        <p><div class="pas_button_sidebar">Начисление</div></p>
+        <p><div class="action_button_sidebar"><a href= "/index?exit=exit" >Выход</a></div></p>
+        {{else}}
+        <p><div class="pas_button_sidebar"><a href= "/index" >Главная</a></div></p>
+        <p><div class="pas_button_sidebar">Месяц</div></p>
+        <p><div class="pas_button_sidebar">Персонал</div></p>
+        <p><div class="pas_button_sidebar">Отзывы</div></p>
+        <p><div class="pas_button_sidebar">Табель</div></p>
+        <p><div class="pas_button_sidebar">Начисление</div></p>
+        <p><div class="action_button_sidebar"><a href= "/index?exit=exit" >Выход</a></div></p>
+        {{end}}
+
+    </strong>
+</div>
+{{end}}

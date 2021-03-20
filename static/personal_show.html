@@ -1,0 +1,18 @@
+{{ define "content" }}
+    <strong>
+    <table border="1" style="background-color: #b1f3d8">
+        <caption><h3>Данные по сотруднику</h3></caption><br>
+        <thead>
+        <th> №</th><th>Наименование</th><th>Значение</th>
+        </thead>
+        <tbody>
+        <tr><td>2</td><td>Фамилия</td>      <td align="center"> {{.Title}}  </td></tr>
+        <tr><td>3</td><td>Должность</td>    <td align="center"> {{.Kadr}}   </td></tr>
+        <tr><td>7</td><td>Адрес</td>        <td align="center"> {{.Address}}</td></tr>
+        </tbody>
+    </table><br>
+    </strong>
+    <button class="button"> <a href= "/personal_edit?title={{ .Title}}" >Изменить</a></button>
+    <button class="button"> <a href= "/personals_index" >Выход</a></button>
+
+{{end}}

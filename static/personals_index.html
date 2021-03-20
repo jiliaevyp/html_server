@@ -1,0 +1,31 @@
+{{define "content" }}
+    <strong>
+        <table border="1" style="background-color: #b1f3d8">
+        <caption>
+            <h3>Список сотрудников<br>
+                </h3>
+        </caption>
+        <thead>
+        <tr>
+            <th align="center">№</th>
+            <th align="center">Фамилия</th>
+            <th align="center">Должность</th>
+            <th align="center">Адрес</th>
+            <th align="center">Удалить</th>
+        </thead>
+        <tbody>
+        {{ range $key, $value := .Personalsindex }}
+            <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                <td>{{ 1}}</td>
+                <td><a href= "personal_show?title={{ $value.Title}}" >{{ $value.Title}}</td>
+                <td>{{ $value.Kadr}}</td>
+                <td>{{ $value.Address}}</td>
+                <td><a href= "/personals_index?del=del&title={{ $value.Title}}">Удалить</a></td>
+            </tr>
+        {{end}}
+        </tbody>
+    </table><br>
+        <button class="button"> <a href= "/personal_new" >Новый сотрудник</a></button>
+        <button class="button"> <a href= "/index" >Выход</a></button>
+    </strong>
+{{end}}

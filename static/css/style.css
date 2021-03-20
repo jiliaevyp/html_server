@@ -1,0 +1,244 @@
+
+body {
+    font: 11pt Arial, Helvetica, sans-serif; /* Шрифт теста */
+    background: #87d3f4; /* Цвет фона */
+}
+
+h1 {
+    font-size: 36px; /* Размер шрифта заголовка шапки */
+    margin: 0; /* Убираем отступы */
+    color: #fc6; /* Цвет текста заголовка шапки */
+}
+
+.header {
+    background: #0080c0; /* Цвет фона шапки */
+    padding: 10px; /* Поля вокруг текста */
+}
+
+.content {
+    margin: 10px 5px 20px 25%; /* Значения отступа от левого блока */
+    padding: 5px; /* Поля внутри блока */
+    border: 1px solid #333; /* Рамка контента */
+}
+
+h2 {
+    font-size: 16px; /* Размер шрифта в заголовке */
+    color: #080808; /* Цвет заголовка */
+    margin-top: 0; /* Отступ сверху */
+}
+.list_image {
+    color: chocolate;
+    width: 70px;
+    height:70px;
+}
+.banner {
+    background: #3664ea;
+    padding: 10px;
+    border-bottom: 2px solid;
+    font: small-caps 40px/40px 'Times New Roman', serif;
+    color: #282;
+    text-align: center;
+}
+.container {
+    width: 100%; /* Ширина слоя */
+    margin: 0 auto; /* Выравнивнить весь блок по центру */
+    #background: #467bb2; /* Цвет фона левой колонки */
+}
+.caption {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-center: 17%; /* Отступ */
+    padding-left: 5px; /* Отступы внутри правого блока */
+}
+.whitetext {
+    color: #fff;
+}
+
+.header {
+    font-size: 24px; /* Размер текста в шапке */
+    text-align: left; /* Выравнивание текст шапки по центру */
+    padding: 10px; /* Отступы внутри блока шапки */
+    background: #0a6af3; /* Цвет фона шапки */
+    color: #e0f107; /* Цвет текста */
+    Начисление заработной платы<br> ООО "Геопласт Телеком"
+}
+.sidebar {
+    font-size: 15px; /* Размер текста в меню */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+    width: 13%; /* Ширина блока */
+    padding: 0 10px; /* Отступы внутри левого блока */
+    float: left; /* Обтекание блока по правому краю */
+    background: #0a6af3;; /* Цвет фона правого блока */
+}
+.action_button_sidebar {    /* активная в сей момент кнопка sidebar */
+    background: #0EB8CC; /* Цвет фона правого блока */
+    color: #080808; /* Цвет текста */
+    padding: 2px; /* Отступы внутри блока */
+    clear: left; /* Отменяем действие float */
+}
+.pas_button_sidebar {    /* активная в сей момент кнопка sidebar */
+    font-size: 15px; /* Размер текста в меню */
+    background: #0EB8CC; /* Цвет фона правого блока */
+    color: white; /* Цвет текста */
+    padding: 2px; /* Отступы внутри блока */
+    clear: left; /* Отменяем действие float */
+}
+
+.content {
+    margin-top: 10px;
+    margin-left: 15%; /* Отступ слева */
+    padding: 5px; /* Отступы внутри правого блока */
+
+}
+.content_1_col {
+    margin-top: 2px;
+    margin-left: 5%; /* Отступ слева */
+    width: 35%; /* Ширина блока */
+    padding: 0 10px; /* Отступы внутри левого блока */
+    float: left; /* Обтекание блока по правому краю */
+}
+.content_2_col {
+    margin-top: 2px;
+    margin-left: 55%; /* Отступ слева */
+    width: 35%; /* Ширина блока */
+    padding: 10px; /* Отступы внутри правого блока */
+    #background: #99cc99; /* Цвет фона контента */
+}
+.content_1_col_comment {
+    margin-top: 1px;
+    margin-left: 1%; /* Отступ слева */
+    width: 25%; /* Ширина блока */
+    padding: 0 5px; /* Отступы внутри левого блока */
+    float: left; /* Обтекание блока по правому краю */
+}
+.content_2_col_comment {
+    margin-top: 1px;
+    margin-left: 10%; /* Отступ слева */
+    width: 30%; /* Ширина блока */
+    padding: 0 5px; /* Отступы внутри правого блока */
+    float: left; /* Обтекание блока по правому краю */
+}
+.text_comment {
+    width: 5%; /* Ширина блока */
+    size: 50;]
+}
+.footer {
+    background: #0a6af3;  /* Цвет фона нижнего блока-подвала */
+    color: #fff; /* Цвет текста подвала */
+    padding: 5px; /* Отступы внутри блока */
+    clear: left; /* Отменяем действие float */
+}
+.list_actions {
+    font-size: x-large;
+    text-align: center;
+    padding-left: 2em;
+    color: #979fc5; /* Цвет текста */
+}
+.actions {
+    font-size: x-large; /* Размер шрифта в кнопке */
+    text-align: left;
+    padding-left: 2em;
+    color: #98a1cf; /* Цвет текста */
+
+}
+.table {
+    font-size: x-large; /* Размер шрифта  */
+    color: #7d90e9;
+    text-align: left;
+    padding-left: 2em;
+    background: #6df3a4
+}
+
+.form_for {
+    font-size: x-large; /* Размер шрифта в кнопке */
+    text-align: left;
+    padding-left: 2em;
+}
+.text_field {
+    font-size: large; /* Размер шрифта в кнопке */
+    text-align: left;
+    padding-left: 2em;
+}
+.submit {
+    text-align: center;
+    font-size: large; /* Размер шрифта в кнопке */
+    color: #000000;
+    background: #0EB8CC;
+    padding-left: 2em;
+    align-content: center;
+}
+.button{
+    font-size: large; /* Размер шрифта в кнопке */
+    color: #000000;
+    background: #95c5f3;
+    text-align: left;
+    padding-left: 1em;
+    align-content: center;
+
+    /*add any other properties you want to style*/
+}
+.list_line_even {
+    background: #ffffff;
+}
+
+.list_line_odd {
+    background: #CCCCCC;
+}
+.pas_line {
+    background: #52c5dd;
+}
+.list_select {
+    display: table-row;
+    font-size: large;
+    text-align: center;
+    font-family: Ariel, Helvetica, sans-serif;
+    line-height: 1em;
+}
+.input {
+    display: table-row;
+    font-size: large;
+    text-align: center;
+    font-family: Ariel, Helvetica, sans-serif;
+    line-height: 1em;
+    height: auto !important;
+}
+
+.label {
+    display: table-cell;
+    text-align: right;
+    font-family: Ariel, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    padding-right: 5px;
+    width: 250px;
+}
+.title_color {
+    font-style: normal;
+    font: red;
+}
+.* {
+    font-size: large;
+    text-align: center;
+    font-family: Ariel, Helvetica, sans-serif;
+    display: table-row;
+    line-height: 2em;
+}
+#submitLabel
+{
+    display: table-row;
+}
+.required {
+    background-color: yellow;
+}
+
+.invalid  {
+    background-color: yellow;
+}
+._pagebreak {
+    page-break-after: always;
+}
+
+
