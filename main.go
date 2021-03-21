@@ -48,19 +48,19 @@ type person struct { // данные по сотруднику при вводе
 	Empty   string // "1" - остались пустые поля
 }
 
-var personalhtml person // переменная по сотруднику при вводе и отображении в personal.HTML
+//var personalhtml person // переменная по сотруднику при вводе и отображении в personal.HTML
 
 type frombase struct { // строка  при чтении/записи из/в базы personaldb
-	Id      int
-	Title   string
-	Kadr    string
-	Address string
+	id      int
+	title   string
+	kadr    string
+	address string
 }
 
 var (
-	personalsindex struct {
-		Ready string
-		pp    []person // таблица по сотрудниам  в personals_index.html
+	personals struct {
+		Ready       string
+		Persontable []person //person // таблица по сотрудниам  в personals_index.html
 	}
 )
 
@@ -148,15 +148,18 @@ func personalsIndexHandler(db *sql.DB) func(w http.ResponseWriter, req *http.Req
 			http.Error(w, "Internal PersonalsIndex ParseFiles Error", http.StatusInternalServerError)
 			return
 		}
-		err = db.Ping()
-		if err != nil {
-			fmt.Println(" ping error ")
-			panic(err)
+		del := req.URL.Query().Get("del")
+		title := req.URL.Query().Get("title")
+		if del == "del" {
+			_, err = db.Exec("DELETE FROM personals WHERE title = $1", title)
+			if err != nil { // удаление старой записи
+				panic(err)
+			}
 		}
+		personals.Persontable = nil
 
-		personalsindex.pp = nil
-
-		rows, err1 := db.Query(`SELECT "title" FROM "personals"`)
+		//rows, err1 := db.Query( `SELECT "title" FROM "personals"`)
+		rows, err1 := db.Query(`SELECT "title","kadr", "address" FROM "personals"`)
 		if err1 != nil {
 			fmt.Println(" table Personals ошибка чтения ")
 			panic(err1)
@@ -164,25 +167,32 @@ func personalsIndexHandler(db *sql.DB) func(w http.ResponseWriter, req *http.Req
 		defer rows.Close()
 
 		for rows.Next() {
-			var p person
+			var p frombase
 			err = rows.Scan( // пересылка  данных строки базы personals в personrow
-				&p.Title,
-				&p.Kadr,
-				&p.Address,
+				//&p.id,
+				&p.title,
+				&p.kadr,
+				&p.address,
 			)
 			if err != nil {
 				fmt.Println("indexPersonals ошибка распаковки строки ")
-				http.Error(w, "ошибка распаковки строки indexPersonals", http.StatusInternalServerError)
 				panic(err)
-				return
 			}
-			personalsindex.pp = append( // добавление строки в таблицу Personalstab для personals_index.html
-				personalsindex.pp,
-				p,
+			var personalhtml person
+			personalhtml.Title = p.title
+			personalhtml.Kadr = p.kadr
+			personalhtml.Address = p.address
+			personalhtml.Ready = "1"
+			personalhtml.Errors = "0"
+			personalhtml.Empty = "0"
+			personals.Persontable = append( // добавление строки в таблицу Personalstab для personals_index.html
+				personals.Persontable,
+				personalhtml,
 			)
 		}
-		personalsindex.Ready = "1"
-		err = t.ExecuteTemplate(w, "base", personalsindex)
+		//fmt.Println(personals.Persontable)
+		personals.Ready = "1"
+		err = t.ExecuteTemplate(w, "base", personals)
 		if err != nil {
 			log.Println(err.Error())
 			http.Error(w, "Internal Server Execute Error indexPersonals", http.StatusInternalServerError)
@@ -203,11 +213,8 @@ func personalShowhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reque
 			return
 		}
 		title := req.URL.Query().Get("title")
-		row := db.QueryRow("SELECT * FROM personals WHERE title=$1", title) // выборка строки 	// создание структуры
-		if err != nil {
-			fmt.Println("ошибка чтения ")
-			panic(err)
-		}
+		row := db.QueryRow("SELECT * FROM personals WHERE title=$1", title)
+		var personalhtml person
 		personalhtml.Ready = "1"  // 1 - ввод успешный
 		personalhtml.Errors = "0" // 1 - ошибки при вводе
 		personalhtml.Empty = "0"  // 1 - есть пустые поля
@@ -216,10 +223,10 @@ func personalShowhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reque
 
 		var p frombase
 		err = row.Scan( // пересылка  данных строки базы personals в personrow
-			&p.Id,
-			&p.Title,
-			&p.Kadr,
-			&p.Address,
+			&p.id,
+			&p.title,
+			&p.kadr,
+			&p.address,
 		)
 		if err != nil {
 			fmt.Println("indexShow ошибка распаковки строки ")
@@ -227,9 +234,9 @@ func personalShowhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reque
 			panic(err)
 			return
 		}
-		personalhtml.Title = p.Title
-		personalhtml.Kadr = p.Kadr
-		personalhtml.Address = p.Address
+		personalhtml.Title = p.title
+		personalhtml.Kadr = p.kadr
+		personalhtml.Address = p.address
 		err = t.ExecuteTemplate(w, "base", personalhtml)
 		if err != nil {
 			log.Println(err.Error())
@@ -245,12 +252,14 @@ func personalNewhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reques
 
 		files := append(partials, "./static/personal_new.html")
 		t, err := template.ParseFiles(files...) // Parse template file.
-		personalhtml.Ready = "0"
+
 		if err != nil {
 			log.Println(err.Error())
 			http.Error(w, "Internal Server ParseFiles Error personalNew", http.StatusInternalServerError)
 			return
 		}
+		var personalhtml person
+		personalhtml.Ready = "0"
 		if req.Method == "POST" {
 			req.ParseForm()
 			personalhtml.Ready = "0"  // 1 - ввод успешный
@@ -265,16 +274,28 @@ func personalNewhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reques
 				personalhtml.Errors = "1"
 			}
 			if personalhtml.Errors == "0" {
+				var personals frombase
 				personalhtml.Ready = "1"
-				_, err = db.Exec(
-					"INSERT INTO personals VALUES ($2,$3,$4)",
-					personalhtml.Title,
-					personalhtml.Kadr,
-					personalhtml.Address,
-				)
+				personals.title = personalhtml.Title
+				personals.kadr = personalhtml.Kadr
+				personals.address = personalhtml.Address
+
+				//res, err := db.Exec("INSERT INTO personals VALUES ($1,$2,$3,$4)",
+				//	personals.id,
+				//	personals.title,
+				//	personals.kadr,
+				//	personals.address,
+				//)
+				sqlStatement := `INSERT INTO personals (title, kadr, address) VALUES ($1,$2,$3)`
+				_, err = db.Exec(sqlStatement,
+					personals.title,
+					personals.kadr,
+					personals.address)
 				if err != nil {
 					fmt.Println("Ошибка записи новой строки в personals")
+					fmt.Println(err)
 				}
+				//fmt.Println(res)
 			}
 		}
 		err = t.ExecuteTemplate(w, "base", personalhtml)
@@ -299,7 +320,7 @@ func main() {
 	fmt.Println("------------------------------------")
 
 	//// Создаем соединение с базой данных
-	connStr := "user=yp password=12345 dbname=jiliaevdb sslmode=disable"
+	connStr := "user=yp password=12345 dbname=postgres sslmode=disable"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		fmt.Println("ошибка подключения к базе <jiliaevdb>")

@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df651263-0750-4216-828b-20c47372995e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/html_server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/footer.partial.tmpl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/header.partial.tmpl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/sidebar.partial.tmpl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/personal_new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/personal_show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/personals_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/personals_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/personals_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
