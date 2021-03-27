@@ -158,7 +158,6 @@ func personalsIndexHandler(db *sql.DB) func(w http.ResponseWriter, req *http.Req
 		}
 		personals.Persontable = nil
 
-		//rows, err1 := db.Query( `SELECT "title" FROM "personals"`)
 		rows, err1 := db.Query(`SELECT "title","kadr", "address" FROM "personals"`)
 		if err1 != nil {
 			fmt.Println(" table Personals ошибка чтения ")
@@ -175,7 +174,7 @@ func personalsIndexHandler(db *sql.DB) func(w http.ResponseWriter, req *http.Req
 				&p.address,
 			)
 			if err != nil {
-				fmt.Println("indexPersonals ошибка распаковки строки ")
+				//fmt.Println("indexPersonals ошибка распаковки строки ")
 				panic(err)
 			}
 			var personalhtml person
@@ -195,6 +194,7 @@ func personalsIndexHandler(db *sql.DB) func(w http.ResponseWriter, req *http.Req
 		err = t.ExecuteTemplate(w, "base", personals)
 		if err != nil {
 			log.Println(err.Error())
+			fmt.Println("indexPersonals ошибка записи  ")
 			http.Error(w, "Internal Server Execute Error indexPersonals", http.StatusInternalServerError)
 			return
 		}
@@ -230,7 +230,6 @@ func personalShowhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reque
 		)
 		if err != nil {
 			fmt.Println("indexShow ошибка распаковки строки ")
-			http.Error(w, "ошибка распаковки строки indexShow", http.StatusInternalServerError)
 			panic(err)
 			return
 		}
@@ -280,12 +279,6 @@ func personalNewhandler(db *sql.DB) func(w http.ResponseWriter, req *http.Reques
 				personals.kadr = personalhtml.Kadr
 				personals.address = personalhtml.Address
 
-				//res, err := db.Exec("INSERT INTO personals VALUES ($1,$2,$3,$4)",
-				//	personals.id,
-				//	personals.title,
-				//	personals.kadr,
-				//	personals.address,
-				//)
 				sqlStatement := `INSERT INTO personals (title, kadr, address) VALUES ($1,$2,$3)`
 				_, err = db.Exec(sqlStatement,
 					personals.title,
