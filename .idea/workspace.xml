@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df651263-0750-4216-828b-20c47372995e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a50120f-c63b-4a94-894f-c61f84e36bcd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/personals_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/personals_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +52,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="нет доступа к таблице personals" />
-    <option name="LAST_COMMIT_MESSAGE" value="нет доступа к таблице personals" />
+    <MESSAGE value="базовая прога &#10;web сервер&#10;работа с базой" />
+    <option name="LAST_COMMIT_MESSAGE" value="базовая прога &#10;web сервер&#10;работа с базой" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
